@@ -59,9 +59,10 @@ public class Db_Connect {
             callableStatement.execute();
             ResultSet resultSet = callableStatement.getResultSet();
             while (resultSet.next()) {
-                String result = resultSet.getString("name");
+                String name = resultSet.getString("name");
+                int power = resultSet.getInt("power");
                 // eredmény feldolgozása
-                Player p = new Player(result);
+                Player p = new Player(name,power);
                 pl.add(p);
             }
 
