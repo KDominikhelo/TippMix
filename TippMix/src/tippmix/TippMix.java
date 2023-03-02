@@ -14,7 +14,7 @@ public class TippMix {
           
           ArrayList<Player> pl = Db_Connect.getInc().getPlayer();
           for (Player player : pl) {
-              System.out.println(player.getName()+" : " +player.getPower());
+              System.out.println(player.getName()+" : " +player.getPower()+" : "+ player.getTeamID());
         }
           
     }

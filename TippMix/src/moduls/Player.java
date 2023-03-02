@@ -12,9 +12,11 @@ public class Player {
 
     private String name;
     private Integer power;
-    public Player(String name,int power) {
+    private Integer TeamID;
+    public Player(String name,int power,Integer TeamID) {
     this.name = name;
     this.power = power;
+    this.TeamID = TeamID;
     }
 
     /**
@@ -44,5 +46,20 @@ public class Player {
     public void setPower(Integer power) {
         this.power = power;
     }
+
+    /**
+     * @return the TeamID
+     */
+    public Integer getTeamID() {
+        return TeamID;
+    }
+
+    /**
+     * @param TeamID the TeamID to set
+     */
+    public void setTeamID(Integer TeamID) {
+        this.TeamID = TeamID;
+    }
+
     
 }

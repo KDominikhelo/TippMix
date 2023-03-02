@@ -61,17 +61,33 @@ public class Db_Connect {
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
                 int power = resultSet.getInt("power");
+                Integer TeamID = null;
+                String ID = resultSet.getString("TeamID");
+                if(ID==null){
+                    TeamID = null;
+                }else{
+                    try{
+                    TeamID = Integer.parseInt(ID);
+                    }catch(Exception ex){
+                        System.err.println("hiba");
+                    }finally{
+                        TeamID = null;
+                    }
+                }
+                //Integer TeamID = Integer.parseInt(resultSet.getString("TeamID"));
+                
                 // eredmény feldolgozása
-                Player p = new Player(name,power);
+                Player p = new Player(name,power,TeamID);
                 pl.add(p);
             }
 
             // Objektumok bezárása
             resultSet.close();
             callableStatement.close();
+            closeConnection(conn);
         return pl;
     }
-    public void closeConnection() {
+    public void closeConnection(Connection conn) {
         try {
             conn.close();
             System.out.println("Az adatbázis kapcsolat sikeresen lezárult.");
